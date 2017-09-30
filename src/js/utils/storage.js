@@ -1,9 +1,10 @@
 class Storage {
   constructor(namespace) {
+    this.app_ns = 'still';
     this.ns = namespace || 'still';
   }
   k(key) {
-    return `${this.ns}::${key}`;
+    return `${this.app_ns}::${this.ns}::${key}`;
   }
   get(key) {
     const rawValue = localStorage.getItem(this.k(key));

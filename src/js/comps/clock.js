@@ -2,7 +2,7 @@ import $ from 'jquery';
 
 class WallClock {
   constructor() {
-    this.$root = $('[data-wc]');
+    this.$root = $('[data-component="wc"]');
     this.$h = this.$root.find('.wc-hour');
     this.$m = this.$root.find('.wc-minute');
 

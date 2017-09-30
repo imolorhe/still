@@ -8,12 +8,31 @@
   <body>
     <div class="bg js-background"></div>
     <div class="wrapper js-wrapper">
-      <div class="wall">
-        <div data-wc class="wall-clock">
-          <span class="wc-hour">12</span><span class="wc-sep">:</span><span class="wc-minute">49</span>
+      <div class="settings-wrapper" data-settings>
+        <div class="settings-handle">
+          <img src="img/icons/settings.svg" alt="settings">
         </div>
-        <div data-wl class="wall-location">--</div>
-        <div data-wt class="wall-tasks">
+        <div class="settings js-settings-list">
+          <div class="settings-item is-toggle">
+            <span class="setting-item-toggle"></span>
+            <span class="setting-item-text">Show clock</span>
+          </div>
+          <div class="settings-item is-toggle">
+            <span class="setting-item-toggle"></span>
+            <span class="setting-item-text">Show location</span>
+          </div>
+          <div class="settings-item is-toggle">
+            <span class="setting-item-toggle"></span>
+            <span class="setting-item-text">Show tasks</span>
+          </div>
+        </div>
+      </div>
+      <div class="wall">
+        <div data-component="wc" class="wall-clock is-hidden">
+          <span class="wc-hour">00</span><span class="wc-sep">:</span><span class="wc-minute">00</span>
+        </div>
+        <div data-component="wl" class="wall-location is-hidden">--</div>
+        <div data-component="wt" class="wall-tasks is-hidden">
           <div class="task-list">
           </div>
           <div class="task-input-wrapper">
@@ -27,6 +46,12 @@
         <div class="task-list-item-icon js-complete-task"></div>
         <input class="task-list-item-input js-task-item-input" type="text" value="{%=o.content%}">
         <span class="task-list-item-close js-remove-task">&times;</span>
+      </div>
+    </script>
+    <script id="settingItemTpl" type="text/template">
+      <div class="settings-item is-{%=o.type%} {%=o.checked? 'is-checked': ''%}" key="{%=o.id%}">
+        <span class="setting-item-toggle"></span>
+        <span class="setting-item-text">{%=o.text%}</span>
       </div>
     </script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>

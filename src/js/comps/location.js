@@ -4,7 +4,7 @@ import Storage from '../utils/storage';
 
 class WallLocation {
   constructor() {
-    this.$root = $('[data-wl]');
+    this.$root = $('[data-component="wl"]');
     this.storage = new Storage('wl');
 
     const city = this.storage.get('city');

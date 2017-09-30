@@ -6,7 +6,7 @@ import Storage from '../utils/storage';
 
 class Tasks {
   constructor() {
-    this.$root = $('[data-wt]');
+    this.$root = $('[data-component="wt"]');
     this.$taskList = this.$root.find('.task-list');
     this.$newTaskInput = this.$root.find('.js-new-task-input');
 

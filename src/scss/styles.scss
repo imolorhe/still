@@ -13,6 +13,9 @@ body{
   -moz-font-smoothing: grayscale;
 }
 
+.is-hidden{
+  display: none !important;
+}
 .bg{
   position: absolute;
   top: 0;
@@ -37,6 +40,72 @@ body{
   position: relative;
   z-index: 1;
   text-align: center;
+  overflow-x: hidden;
+}
+
+.settings-wrapper{
+  position: absolute;
+  bottom: 0;
+  right: -200px;
+  width: 200px;
+  background: black;
+  color: white;
+  transition: all .3s ease-in-out;
+  text-align: left;
+  padding: 10px;
+  &.is-open{
+    right: 0;
+  }
+}
+.settings-handle{
+  position: absolute;
+  bottom: 5px;
+  right: 100%;
+  background: black;
+  color: white;
+  width: 40px;
+  line-height: 0;
+  padding: 5px;
+  cursor: pointer;
+}
+.settings-item{
+  padding: 10px;
+  &.is-toggle{
+    cursor: pointer;
+  }
+  &.is-checked{
+    .setting-item-toggle{
+      &:before{
+        opacity: 1;
+      }
+    }
+  }
+}
+.setting-item-text{
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 18px;
+}
+.setting-item-toggle{
+  position: relative;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 1px solid white;
+  border-radius: 3px;
+  vertical-align: middle;
+  &:before{
+    $toggle-padding: 2px;
+    content: '';
+    position: absolute;
+    top: $toggle-padding;
+    left: $toggle-padding;
+    right: $toggle-padding;
+    bottom: $toggle-padding;
+    background: white;
+    border-radius: 1px;
+    opacity: 0;
+  }
 }
 
 .wall{

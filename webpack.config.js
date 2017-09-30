@@ -15,7 +15,7 @@ module.exports = {
 		inline: true,
 		contentBase: './'
 	},
-	devtool: process.env.NODE_ENV === "development" ? "source-map": false,
+	devtool: 'source-map',
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
 		extractSass
