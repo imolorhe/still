@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Still</title>
+  </head>
+  <body>
+    <div class="bg js-background"></div>
+    <div class="wrapper js-wrapper">
+      <div class="wall">
+        <div data-wc class="wall-clock">
+          <span class="wc-hour">12</span><span class="wc-sep">:</span><span class="wc-minute">49</span>
+        </div>
+        <div data-wl class="wall-location">Amsterdam</div>
+        <div data-wt class="wall-tasks">
+          <div class="task-list">
+          </div>
+          <div class="task-input-wrapper">
+            <input type="text" class="task-input js-new-task-input" placeholder="I need to...">
+          </div>
+        </div>
+      </div>
+    </div>
+    <script id="taskListItemTpl" type="text/template">
+      <div class="task-list-item {% if(o.completed){ %} is-completed {% } %}" key='{%=o.key%}'>
+        <div class="task-list-item-icon js-complete-task"></div>
+        <input class="task-list-item-input js-task-item-input" type="text" value="{%=o.content%}">
+        <span class="task-list-item-close js-remove-task">&times;</span>
+      </div>
+    </script>
+    <script type="text/javascript" src="dist/app.bundle.js"></script>
+  </body>
+</html>
