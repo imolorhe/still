@@ -4,6 +4,9 @@
 # Remove any chrome-extension directory
 rm -rf chrome-extension
 
+# Remove any still.zip files
+rm still.zip
+
 # Create a new chrome-extension directory
 mkdir chrome-extension
 

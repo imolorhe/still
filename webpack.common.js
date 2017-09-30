@@ -11,11 +11,6 @@ module.exports = {
 	output: {
 		filename: './dist/app.bundle.js'
 	},
-	devServer: {
-		inline: true,
-		contentBase: './'
-	},
-	devtool: 'source-map',
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
 		extractSass
