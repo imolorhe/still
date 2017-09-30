@@ -2,4 +2,5 @@ node_modules/
 dist/
 still.zip
 chrome-extension
+.DS_Store
 
