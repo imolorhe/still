@@ -41,6 +41,8 @@ body{
 
 .wall{
   padding: 100px;
+  max-height: 100%;
+  overflow-y: auto;
 }
 .wall-clock{
   display: inline-block;
@@ -54,7 +56,7 @@ body{
   .task-list-item{
     position: relative;
     transition: all .3s ease;
-    &:hover,&.is-completed{
+    &:hover{
       .task-list-item-icon{
         opacity: 1;
       }

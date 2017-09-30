@@ -1,14 +1,12 @@
 import $ from 'jquery';
+import Location from '../utils/location';
 
 class WallLocation {
   constructor() {
-    this.$root = $('[data-wl');
-    // $.getScript('http://www.geoplugin.net/javascript.gp', () => {
-    //   var country = geoplugin_countryName();
-    //   var zone = geoplugin_region();
-    //   var district = geoplugin_city();
-    //   console.log("Your location is: " + country + ", " + zone + ", " + district);
-    // });
+    this.$root = $('[data-wl]');
+
+    this.location = new Location();
+    this.location.ready(city => this.$root.text(city));
   }
 }
 

@@ -2,6 +2,7 @@ import $ from 'jquery';
 import tmpl from 'blueimp-tmpl';
 
 import { ENTER_KEY } from '../utils/keys';
+import Storage from '../utils/storage';
 
 class Tasks {
   constructor() {
@@ -11,12 +12,16 @@ class Tasks {
 
     this.taskListItemTpl = $('#taskListItemTpl').html();
 
-    this.tasks = [
-      {
-        content: 'Buy clothes',
-        completed: false
-      }
-    ];
+    this.storage = new Storage('wt');
+
+    this.tasks = this.storage.get('tasks');
+
+    // this.tasks = [
+    //   {
+    //     content: 'Buy clothes',
+    //     completed: false
+    //   }
+    // ];
 
     this.events();
     this.renderTasks();
@@ -50,6 +55,7 @@ class Tasks {
   updateTasksState(tasks) {
     this.tasks = [...tasks];
     this.renderTasks();
+    setTimeout(() => this.storage.set('tasks', this.tasks), 0);
   }
 
   addTask() {
