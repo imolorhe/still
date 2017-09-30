@@ -14,7 +14,7 @@ class Tasks {
 
     this.storage = new Storage('wt');
 
-    this.tasks = this.storage.get('tasks');
+    this.tasks = this.storage.get('tasks') || [];
 
     // this.tasks = [
     //   {

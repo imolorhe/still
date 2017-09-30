@@ -1,4 +1,10 @@
 const webpack = require('webpack');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+const extractSass = new ExtractTextPlugin({
+    filename: "./dist/app.css",
+    disable: process.env.NODE_ENV === "development"
+});
 
 module.exports = {
 	entry: './src/js/app.js',
@@ -9,19 +15,22 @@ module.exports = {
 		inline: true,
 		contentBase: './'
 	},
+	devtool: process.env.NODE_ENV === "development" ? "source-map": false,
 	plugins: [
-		new webpack.HotModuleReplacementPlugin()
+		new webpack.HotModuleReplacementPlugin(),
+		extractSass
 	],
 	module: {
 		rules: [{
 			test: /\.scss$/,
-			use: [{
-				loader: "style-loader" // creates style nodes from JS strings
-			}, {
-				loader: "css-loader" // translates CSS into CommonJS
-			}, {
-				loader: "sass-loader" // compiles Sass to CSS
-			}]
+			use: extractSass.extract({
+				use: [{
+					loader: "css-loader" // translates CSS into CommonJS
+				}, {
+					loader: "sass-loader" // compiles Sass to CSS
+				}],
+				fallback: "style-loader" // creates style nodes from JS strings in development
+			})
 		},{
 			test: /\.js$/,
 			exclude: /(node_modules|bower_components)/,

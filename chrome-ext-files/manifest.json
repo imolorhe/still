@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "Still",
+  "version": "1.0.0",
+  "description": "A simple, minimalist new tab extension.",
+  "icons": {
+    "16": "zen.png",
+    "48": "zen.png",
+    "128": "zen.png"
+  },
+  "chrome_url_overrides" : {
+    "newtab": "index.html"
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://maps.googleapis.com; object-src 'self'",
+  "permissions": [
+    "geolocation"
+  ]
+}
