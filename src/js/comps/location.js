@@ -1,10 +1,10 @@
-import $ from 'jquery';
+import Component from './component';
 import Location from '../utils/location';
 import Storage from '../utils/storage';
 
-class WallLocation {
+class WallLocation extends Component {
   constructor() {
-    this.$root = $('[data-component="wl"]');
+    super('wl');
     this.storage = new Storage('wl');
 
     const city = this.storage.get('city');

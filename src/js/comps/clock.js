@@ -1,8 +1,9 @@
 import $ from 'jquery';
+import Component from './component';
 
-class WallClock {
+class WallClock extends Component {
   constructor() {
-    this.$root = $('[data-component="wc"]');
+    super('wc');
     this.$h = this.$root.find('.wc-hour');
     this.$m = this.$root.find('.wc-minute');
 

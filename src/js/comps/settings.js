@@ -29,6 +29,12 @@ class Settings {
         text: 'Show tasks',
         checked: true,
         type: 'toggle'
+      },
+      {
+        id: 'bg',
+        text: 'Show background',
+        checked: true,
+        type: 'toggle'
       }
     ];
 

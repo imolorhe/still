@@ -1,16 +1,14 @@
-import $ from 'jquery';
+import Component from './component';
 import tmpl from 'blueimp-tmpl';
 
 import { ENTER_KEY } from '../utils/keys';
 import Storage from '../utils/storage';
 
-class Tasks {
+class Tasks extends Component {
   constructor() {
-    this.$root = $('[data-component="wt"]');
+    super('wt');
     this.$taskList = this.$root.find('.task-list');
     this.$newTaskInput = this.$root.find('.js-new-task-input');
-
-    this.taskListItemTpl = $('#taskListItemTpl').html();
 
     this.storage = new Storage('wt');
 
@@ -42,7 +40,7 @@ class Tasks {
   }
 
   renderTasks() {
-    let $tasks = $('<div></div>');
+    let $tasks = this.$('<div></div>');
 
     this.tasks.forEach((task, key) => {
       const _task = tmpl('taskListItemTpl', {...task, key});
@@ -71,7 +69,7 @@ class Tasks {
   }
 
   getTaskNode(node) {
-    return $(node).closest('.task-list-item');
+    return this.$(node).closest('.task-list-item');
   }
   getNodeKey(node) {
     return this.getTaskNode(node).attr('key');
