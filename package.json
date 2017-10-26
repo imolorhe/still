@@ -1,6 +1,6 @@
 {
   "name": "still",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "A chrome new tab extension",
   "main": "index.js",
   "scripts": {

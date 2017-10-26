@@ -24,6 +24,8 @@ body{
   right: 0;
   background: url(https://source.unsplash.com/random/1400x900);
   background-size: cover;
+  opacity: 0;
+  transition: opacity 1s ease;
   &:before{
     content: '';
     position: absolute;
@@ -33,6 +35,9 @@ body{
     bottom: 0;
     background: white;
     opacity: .9;
+  }
+  &.show-bg {
+    opacity: 1;
   }
 }
 

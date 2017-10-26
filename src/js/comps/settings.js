@@ -102,9 +102,22 @@ class Settings {
       case 'toggle':
         const $comp = $(`[data-component="${setting.id}"]`);
         if (setting.checked) {
-          $comp.slideDown();
+          $comp.css('opacity', '0').slideDown(function() {
+            $(this).animate({'opacity': '1'}, function() {
+              $(this).css('opacity', ''); //cleanup
+            });
+          });
         } else {
-          $comp.slideUp();
+          // For the background component, just fade out
+          if (setting.id === 'bg') {
+            $comp.css('opacity', 0).delay(1000).slideUp();
+          } else {
+            $comp.animate({'opacity': '0'}, function() {
+              $(this).slideUp(function() {
+                $(this).css('opacity', ''); //cleanup
+              });
+            });
+          }
         }
         break;
     }
